@@ -1,9 +1,4 @@
 from math import *;
-import os;
-import creacionMatriz;
+import opcionesMatriz,os;
 
-creacionMatriz.pruebamod('hola');
-
-creacionMatriz.crearMat(2);
-
-#hola que tal
+opcionesMatriz.crearMat(2);
