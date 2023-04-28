@@ -6,7 +6,8 @@ def crearMat(n):
     for i in range(n):
         for j in range(n+1):
             arr[i][j] = int(input(f'Ingresa el valor del indice [{i+1}],[{j+1}] ---> '))
-    print(arr)
+        print()
+    print(f'\nArreglo original\n\n{arr}')
     return arr;
 
 def reducir(arr,n):
@@ -23,7 +24,7 @@ def reducir(arr,n):
             for j in range(n+1):
                 arr[i][j] = arr2[i][j]
         
-    print(arr)
+    print(f'\nArreglo Escalonado\n\n{arr}')
     arr3 = simplificar(arr,n)
     resultados(arr3,n)
     return arr3
@@ -38,6 +39,7 @@ def simplificar(arr,n):
             subarr.append(str(Fraction(arr2[i][j]).limit_denominator()))
         arr3.append(subarr)
     
+    print(f'\nArreglo simplificado\n')
     for i in range(n):
         print(arr3[i])
     return arr3

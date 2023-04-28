@@ -16,13 +16,14 @@ hasta obtener una matriz diagonal.
 Ultima actualización: 4 de abril del 2023
 """
 
-import opcionesMatriz,os;
+import opcionesMatriz,os
 
 os.system('cls')
 
 incog = int(input('Ingresa el numero de incognitas en el sistema ---> '))
+print()
 
-arr = opcionesMatriz.crearMat(incog);
+arr = opcionesMatriz.crearMat(incog)
 
 
 arr2 = opcionesMatriz.reducir(arr,incog)
