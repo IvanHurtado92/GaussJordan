@@ -36,7 +36,10 @@ def reducir(arr,n):
         ceros2 = False # cuenta todos los numeros de la fila
 
         for k in range(n): #buscando los elementos de la fila debajo de la actual excepto el último, busca si es sin solución(todos los elementos menos el último es igual a cero)
-            if(r+1==n):break # si se pasó de la cantidad de filas existentes, se rompe el ciclo
+            if(r+1==n):
+                print("terminado")
+                ceros1=False #en caso de que ya se llegara a la línea final y no hay ceros, se sale de este ciclo y se coloca ceros1 como falso para que el resultado sea de tipo 1
+                break # si se pasó de la cantidad de filas existentes, se rompe el ciclo
             if(k == n-1):terminado=True # si ya se llegó al penúltimo elmento
             if(arr[r+1][k]!=0):ceros1=False # revisa si todos los numeros de la fila excepto el ultimo son ceros
             # print(terminado)
@@ -45,7 +48,7 @@ def reducir(arr,n):
                 ceros2 = True
                 for g in range(n+1): #buscando todos los elementos de la fila debajo de la actual, busca si tiene soluciones infinitas (todos son ceros en la fila)
                     if(arr[r+1][g]!=0):ceros2=False # revisa si todos los numeros de la fila son ceros
-        # print(ceros1,ceros2)
+        print(ceros1,ceros2)
         if(ceros2):
             tipo = 2 #soluciones infinitas
             break
