@@ -29,24 +29,28 @@ def reducir(arr,n):
 
         print(f'\nArreglo {r}\n\n{arr}')
         
-        suma = 0
-        suma2 = 0
-
         #Esta zona nos permite eliminar valores hasta que la línea debajo de la actual no exprese que los resultados son infinitos o sin solución
 
-        for k in range(n): #sumando los elementos de la fila debajo de la actual excepto el último
-            if(r+1==n):break
-            suma2+=arr[r+1][k]
-            if(suma2==0):
-                for k in range(n+1): #sumando todos los elementos de la fila debajo de la actual
-                    if(r+1==n):break
-                    suma+=arr[r+1][k]
+        terminado = False # revisa si ya se llegó el penultimo elemento de la fila para el caso de ceros1
+        ceros1 = True # cuenta todos los numeros de la fila excepto el ultimo
+        ceros2 = False # cuenta todos los numeros de la fila
 
-        if(suma==0):
-            tipo = 2
+        for k in range(n): #buscando los elementos de la fila debajo de la actual excepto el último, busca si es sin solución(todos los elementos menos el último es igual a cero)
+            if(r+1==n):break # si se pasó de la cantidad de filas existentes, se rompe el ciclo
+            if(k == n-1):terminado=True # si ya se llegó al penúltimo elmento
+            if(arr[r+1][k]!=0):ceros1=False # revisa si todos los numeros de la fila excepto el ultimo son ceros
+            # print(terminado)
+
+            if(ceros1 and terminado): 
+                ceros2 = True
+                for g in range(n+1): #buscando todos los elementos de la fila debajo de la actual, busca si tiene soluciones infinitas (todos son ceros en la fila)
+                    if(arr[r+1][g]!=0):ceros2=False # revisa si todos los numeros de la fila son ceros
+        # print(ceros1,ceros2)
+        if(ceros2):
+            tipo = 2 #soluciones infinitas
             break
-        elif(suma2 == 0 and arr[n-1][n]!=0):
-            tipo = 3
+        elif(ceros1 and arr[n-1][n]!=0):
+            tipo = 3 #sin solución
             break
 
     print(f'\nArreglo Escalonado\n\n{arr}')
