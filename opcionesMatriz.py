@@ -11,7 +11,7 @@ def crearMat(n):
     return arr;
 
 def reducir(arr,n):
-    tipo=1 #tipo es el tipo de respuesta que es, resolvible, sin solucion o infinita
+    tipo=1 #tipo es el tipo de respuesta que es, resolvible, infinita o sin solucion (1,2,3)
     arr2 = np.zeros((n,(n+1)))
 
     for r in range(n):
@@ -31,7 +31,8 @@ def reducir(arr,n):
         
         suma = 0
         suma2 = 0
-        encontrado = False
+
+        #Esta zona nos permite eliminar valores hasta que la línea debajo de la actual no exprese que los resultados son infinitos o sin solución
 
         for k in range(n): #sumando los elementos de la fila debajo de la actual excepto el último
             if(r+1==n):break
@@ -40,14 +41,6 @@ def reducir(arr,n):
                 for k in range(n+1): #sumando todos los elementos de la fila debajo de la actual
                     if(r+1==n):break
                     suma+=arr[r+1][k]
-
-
-
-        # for k in range(n+1): #sumando los elementos de la ultima fila
-        #     suma+=arr[n-1][k]
-
-        # for k in range(n): #sumando los elementos de la ultima fila excepto el último
-        #     suma2+=arr[n-1][k]
 
         if(suma==0):
             tipo = 2
