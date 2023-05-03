@@ -16,7 +16,7 @@ def reducir(arr,n):
 
     for r in range(n):
         for i in range(n):
-            if (i==r): continue
+            if (i==r): continue # si r e i son iguales, significa que estamos en la diagonal de la matriz, por lo que no será operado en la reducción
 
             for j in range(n+1):
                 arr2[i][j] = arr[i][j] - ((arr[i][r] / arr[r][r]) * arr[r][j])
@@ -48,7 +48,7 @@ def reducir(arr,n):
                 ceros2 = True
                 for g in range(n+1): #buscando todos los elementos de la fila debajo de la actual, busca si tiene soluciones infinitas (todos son ceros en la fila)
                     if(arr[r+1][g]!=0):ceros2=False # revisa si todos los numeros de la fila son ceros
-        print(ceros1,ceros2)
+        #print(ceros1,ceros2)
         if(ceros2):
             tipo = 2 #soluciones infinitas
             break
